@@ -1,0 +1,50 @@
+{
+  "name": "offline-request-saga",
+  "version": "0.1.0",
+  "description": "Sagas for handling requests when an application is offline.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib --copy-files",
+    "prepublish": "npm run build",
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --require babel-polyfill './src/**/*-test.js' './src/**/*/*-test.js' './src/**/*/*/*-test.js'",
+    "test:watch": "npm test -- --watch"
+  },
+  "keywords": [
+    "redux-saga",
+    "offline",
+    "offline-first",
+    "request",
+    "queue"
+  ],
+  "dependencies": {
+    "core-js": "^2.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "4.0.0",
+    "expect": "1.20.2",
+    "mocha": "3.5.0",
+    "redux": "3.6.0",
+    "redux-offline-status": "0.1.2",
+    "redux-persist": "4.6.0",
+    "redux-saga": "^0.15.3",
+    "redux-saga-test-plan": "3.1.0"
+  },
+  "peerDependencies": {
+    "redux": ">=3.0.0",
+    "redux-offline-status": "^0.1.2",
+    "redux-persist": "^4.6.0",
+    "redux-saga": "^0.15.3"
+  },
+  "author": "Nick Stevens <nick@nickstevens.com> (http://nickstevens.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OffgridElectric/offline-request-saga.git"
+  }
+}
