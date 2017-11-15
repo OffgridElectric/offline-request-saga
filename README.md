@@ -43,3 +43,26 @@ persistStore(store, {
 ## Query Retry with `getRequest`
 
 ## Mutation Queue with `queueRequest`
+
+## Handling Events in Reducers
+When your run `getRequest` or `queueRequest` you pass an action. While you may certainly want to respond to this action in your reducers, there are additional actions fired by the middleware that you should handle in your reducers. Import `successActionType` and `errorActionType` to wrap the appropriate action.
+```
+import { successActionType, errorActionType } from 'offline-request-saga'
+import { GET_ITEMS } from './actions'
+
+export const items = (state = [], action) => {
+  switch (action.type) {
+    case successActionType(GET_ITEMS): {
+      return action.data
+    }
+
+    case GET_ITEMS:
+    case errorActionType(GET_ITEMS): {
+      return []
+    }
+
+    default:
+      return state
+  }
+})
+```

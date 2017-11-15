@@ -14,7 +14,8 @@
     "offline",
     "offline-first",
     "request",
-    "queue"
+    "queue",
+    "network"
   ],
   "dependencies": {
     "core-js": "^2.4.1"
